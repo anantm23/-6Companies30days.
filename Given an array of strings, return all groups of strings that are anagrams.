@@ -1,0 +1,14 @@
+# The approach is to create a dictionary to store all the words having same alphabets in a single list.
+# The key to be taken should be consistent, so I am sorting the alphabets and using it as a key to store all its groups.
+# The list of all the values in the dictionary will be having all the similar groupings.
+
+class Solution:
+    def Anagrams(self, words, n):
+        d={}
+        for w in words:
+            k=''.join(sorted(w))
+            if k in d:
+                d[k].append(w)
+            else:
+                d[k]=[w]
+        return d.values()
