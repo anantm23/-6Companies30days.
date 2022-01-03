@@ -1,0 +1,12 @@
+Approach -> Check wheater one rectangle lies to the left, right, up, down of the other, if not, they intersect.
+
+class Solution:
+    
+    def doOverlap(self, l1, r1, l2, r2):
+        x1,y1=map(int, l1)
+        x2,y2=map(int, r1)
+        x3,y3=map(int, l2)
+        x4,y4=map(int, r2)
+        if x2<=x3 or x4<=x1 or y1<=y4 or y3<=y2:
+            return int(False)
+        return int(True)
