@@ -1,0 +1,23 @@
+Approach : Using a Prefix Array ans 2 pointer method.
+Having a sliding window mechanism we keep a track of the lenght of each window having sum greater than K and return the smallest length.
+
+class Solution:
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        for i in range(1, len(nums)):
+            nums[i]+=nums[i-1]
+        i=0
+        ans=inf
+        j=0
+        if nums[-1]==target:
+            return len(nums)
+        nums.append(0)
+        while j<len(nums)-1:
+            d=nums[j]-nums[i-1]
+            if d<target:
+                j+=1
+            else:
+                ans=min(ans, abs(j-i)+1)
+                i+=1
+        if ans==inf:
+            return 0
+        return ans
