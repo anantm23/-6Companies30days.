@@ -1,0 +1,19 @@
+Approach : Using a Stack to keep a track of D to append as nums
+
+class Solution:
+    def printMinNumberForPattern(ob,S):
+        ar=list(S)
+        ar.append('i')
+        s=[]
+        num=1
+        for i in range(len(ar)):
+            if ar[i]=='D':
+                s.append(i)
+            else:
+                ar[i]=num
+                num+=1
+                while s:
+                    k=s.pop()
+                    ar[k]=num
+                    num+=1
+        return ''.join(map(str, ar))
