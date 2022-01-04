@@ -1,0 +1,9 @@
+Approach -> Creating a count array to store the count of occurrences
+
+class Solution:
+    def findTwoElement( self,arr, n): 
+        a=[0 for i in range(n+1)]
+        a[0]=5
+        for i in arr:
+            a[i]+=1
+        return [a.index(2),a.index(0)]
